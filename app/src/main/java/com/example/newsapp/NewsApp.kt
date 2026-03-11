@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.newsapp.ui.theme.NewsAppTheme
@@ -32,9 +33,14 @@ fun NewsApp(){
         TextField(
             value = "",
             onValueChange = {},
-            placeholder = { Text("Buscar") },
+            placeholder = { Text(
+                "Buscar"
+            ) },
             leadingIcon = {
-                Icon(Icons.Default.Search, contentDescription = "Buscar")
+                Icon(
+                    Icons.Default.Search,
+                    contentDescription = "Buscar"
+                )
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -42,11 +48,32 @@ fun NewsApp(){
 
             shape = RoundedCornerShape(30.dp),
             colors = TextFieldDefaults.colors(
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                disabledIndicatorColor = Color.Transparent,
+            )
         )
-        )
+
+        // Barra de filtro
+        Row(
+            modifier = Modifier
+                .padding(bottom = 20.dp),
+            horizontalArrangement = Arrangement.spacedBy(20.dp)
+        ) {
+            Text(
+                "Noticias"
+            )
+            Text(
+                "Eventos",
+                color = Color.Gray
+            )
+            Text(
+                "Clima",
+                color = Color.Gray
+            )
+        }
+
+
 
 
     }
