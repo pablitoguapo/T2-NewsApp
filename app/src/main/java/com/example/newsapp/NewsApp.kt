@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.newsapp.ui.theme.NewsAppTheme
 
 @Composable
@@ -73,6 +74,41 @@ fun NewsApp(){
             )
         }
 
+        Text(
+            modifier = Modifier.
+            padding(bottom = 20.dp),
+            text = "Ultimas Noticias",
+            fontSize = 20.sp
+        )
+        val Lista = listOf(
+            "El presidente de EE.UU. no muestra signos de arrepentimiento...",
+            "Bañarse en la piscina del desierto de Cleopatra",
+            "Gigantes tecnológicos",
+            "El rover de Marte envía nuevas imágenes"
+        )
+
+        // Noticias Barras
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(Lista) { news ->
+
+                Box(
+                    modifier = Modifier
+                        .size(width = 200.dp, height = 120.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xFF6C63FF))
+                        .padding(12.dp)
+                ) {
+                    Text(
+                        text = news,
+                        color = Color.White
+
+                    )
+                }
+
+            }
+        }
 
 
 
